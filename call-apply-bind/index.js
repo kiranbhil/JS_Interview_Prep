@@ -13,13 +13,13 @@ let name = {
 }
 name.printFullName()
 let name1 = {
-    firstname:"jhon",
-    lastname:"sims"
+    firstname:"Vishal",
+    lastname:"Bhil"
 }
 
+name.printFullName.call(name1);
 
 // function borrowing
-name.printFullName.call(name1);
 
 let printFullName1 = function(city,state){
     console.log(this.firstname+" "+this.lastname+ " "+city+" "+state);
@@ -27,4 +27,12 @@ let printFullName1 = function(city,state){
 }
 printFullName1.call(name,"bvn","guj");
 
+// apply method 
+
 printFullName1.apply(name1,["abc","xyz"]);
+
+// bind method 
+
+let printMyName = printFullName1.bind(name1,"abc","xyz")
+console.log(printMyName)
+printMyName()
